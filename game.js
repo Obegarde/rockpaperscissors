@@ -16,7 +16,7 @@ function getComputerChoice(){
 
 }
 
-//Both choices are hard coded here for the time being. had a version that prompted the user but the exercise didnt want that yet.
+
 
 
 //Create a function that let the human play the computer and declares the victor and why Eg: "You lose! Rock beats Scissors!" It has to be case-insensitive.
