@@ -1,3 +1,4 @@
+
 // Create a function that returns Rock, paper or scissors
 function getComputerChoice(){
 //  Create a variable that can hold a number between 1-3.
@@ -88,3 +89,51 @@ function playRound(playerSelection,computerSelection = getComputerChoice()){
         }
     
     }
+
+
+    // Ui code below here
+
+    let buttonHolder = document.querySelector('#gameButtons');
+    let scoreScreen = document.querySelector('#scorescreen');
+    let runningScore = document.querySelector('#runningscore');
+    let playerScore = 0;
+    let computerScore = 0;
+
+
+    buttonHolder.addEventListener('click', (event) =>{
+        let target = event.target;
+        let roundWinner;
+        switch(target.id){
+            case "rock":
+                roundWinner=playRound("rock");
+                break;
+            case "paper":
+                roundWinner=playRound("paper");
+                break;
+            case "scissors":
+                roundWinner=playRound("scissors");
+                break;
+        }
+        scoreScreen.textContent = roundWinner;
+
+        if(roundWinner[4] ==='W'){
+            playerScore += 1;
+        }else if(roundWinner[4] === 'L'){
+            computerScore += 1;
+        }
+        runningScore.textContent = `Computer: ${computerScore} Player: ${playerScore}`;
+        if(computerScore === 5 || playerScore === 5){
+            if(computerScore > playerScore){
+                alert(`GAME OVER!\n You lost ${computerScore} to ${playerScore}`);
+                playerScore = 0;
+                computerScore = 0;
+            }else{
+                alert(`WINNER!\n You won ${playerScore} to ${computerScore}`);
+                playerScore = 0;
+                computerScore = 0;
+            }
+        }
+
+
+    });
+
